@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:vm="clr-namespace:MauiApp1.ViewModels"
+             x:Class="MauiApp1.MainPage">
+    <ContentPage.BindingContext>
+        <vm:MainPageViewModel />
+    </ContentPage.BindingContext>
+
+    <ScrollView>
+        <VerticalStackLayout
+            Spacing="25"
+            Padding="30,0"
+            VerticalOptions="Center">
+            <Border WidthRequest="300" HeightRequest="300">
+                <toolkit:DrawingView Lines="{Binding Lines}" 
+                                 BackgroundColor="Black"
+                                 DrawingLineCompletedCommand="{Binding DrawingLineCompletedCommand}"
+                                 LineColor="White" LineWidth="5" HeightRequest="300" WidthRequest="300"   />
+
+            </Border>
+            <HorizontalStackLayout HorizontalOptions="Center">
+                <Label Text="You drew the letter:" Margin="0,0,10,0" FontSize="Large"/>
+                <Label Text="{Binding PredictedCharacter}" FontSize="Large" FontAttributes="Bold" HorizontalOptions="Center"></Label>
+            </HorizontalStackLayout>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
